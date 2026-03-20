@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import 'react-modern-drawer/dist/index.css';
+
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* adjust to navbar height */
+}
