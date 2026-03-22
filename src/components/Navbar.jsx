@@ -61,13 +61,16 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {open && (
-        <div className="
-    absolute top-full left-0 w-60 h-screen
-    bg-[#0d1b2a]/90 backdrop-blur-md
-    border-r border-white/20
-    shadow-lg shadow-black/30
-    flex flex-col items-start gap-6 py-6 md:hidden
-  ">
+        <div className={
+          `absolute top-full left-0 w-60 h-screen
+          bg-[#0d1b2a]/90 backdrop-blur-md
+          border-r border-white/20
+          shadow-lg shadow-black/30
+          flex flex-col items-start gap-6 py-6 md:hidden
+          transform transition-all duration-300 ease-in
+          ${open ? "translate-x-0 translate-y-0" : "-translate-x-full"}
+          z-40`
+        }>
 
           <button
             onClick={() => handleNavClick("#vision")}

@@ -47,6 +47,7 @@ export default function Community() {
           ].map((item, i) => (
             <div
               key={i}
+              style={{ transitionDelay: `${i * 100}ms` }}
               className={`
                 p-10 border rounded-2xl border-[#C9A84C]/20 hover:bg-[#f9f5ec] cursor-pointer transition
                 ${isVisible
@@ -54,7 +55,6 @@ export default function Community() {
                   : "opacity-0 translate-y-10"
                 }
               `}
-              style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="text-3xl mb-4">{item.icon}</div>
               <div className="text-xl font-bold mb-3">{item.title}</div>

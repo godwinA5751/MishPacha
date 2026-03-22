@@ -41,7 +41,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#join"
+              href="https://chat.whatsapp.com/F8BY1nT4VSe8zQmeBL6ZGd"
               className="border-2 rounded-3xl border-white/30 text-white px-8 py-4 uppercase tracking-[0.2em] hover:border-[#C9A84C] hover:text-[#C9A84C]"
             >
               Join the Family
