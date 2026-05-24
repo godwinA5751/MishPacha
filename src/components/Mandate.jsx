@@ -39,9 +39,8 @@ export default function Mandate() {
               verse: "Genesis 1:26–28"
             }
           ].map((item) => (
-            <Reveal>
+            <Reveal key={item.num}>
               <div
-                key={item.num}
                 className={`
                  rounded-3xl p-6 cursor-pointer shadow-xl bg-white hover:bg-white/50 hover:backdrop-blur-md transition 
                 `}

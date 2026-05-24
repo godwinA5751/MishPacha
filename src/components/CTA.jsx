@@ -19,11 +19,10 @@ export default function CTA() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="" className="bg-blue-500 shadow-lg text-white rounded-3xl px-8 py-4 font-bold hover:bg-transparent hover:border hover:border-blue-500 hover:text-blue-500 transition-all delay-200">
+          <a href="#cta" className="bg-blue-500 shadow-lg text-white rounded-3xl px-8 py-4 font-bold hover:bg-transparent hover:border hover:border-blue-500 hover:text-blue-500 transition-all delay-200">
             Connect With Us
           </a>
-
-          <a href="" className="bg-white shadow-lg text-blue-500 font-bold px-8 py-4 rounded-3xl">
+          <a href="#cta" className="bg-white shadow-lg text-blue-500 font-bold px-8 py-4 rounded-3xl">
             Our Programs
           </a>
         </div>

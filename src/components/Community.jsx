@@ -48,10 +48,8 @@ export default function Community() {
               and purpose — ready to take dominion.`
             }
           ].map((item, i) => (
-            <Reveal>
+            <Reveal key={i}>
               <div
-                key={i}
-                style={{ transitionDelay: `${i * 100}ms` }}
                 className={`
                   p-6 rounded-2xl bg-white hover:bg-white/60 hover:backdrop-blur-md shadow-xl cursor-pointer transition
               `}
