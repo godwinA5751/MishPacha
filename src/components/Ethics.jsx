@@ -2,7 +2,7 @@ import Banner from "./Banner"
 import Reveal from "./Reveal"
 export default function Ethics() {
   return (
-    <section id="ethics" className="lg:h-screen md:py-15 pt-10 px-6 flex flex-col justify-center items-center">
+    <section id="ethics" className="lg:h-screen pt-24 scroll-mt-32 px-6 flex flex-col justify-center items-center">
 
       <div className="max-w-6xl my-10 mx-auto grid md:grid-cols-2 gap-16 items-center">
         <Reveal>

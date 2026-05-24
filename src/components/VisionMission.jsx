@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 
 export default function VisionMission() {
   return (
-    <section id="vision" className="p-6 py-20">
+    <section id="vision" className="p-6 py-24 scroll-mt-32">
       <Reveal>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="bg-white/20 backdrop-blur-xl rounded-3xl shadow-2xl text-blue-900 p-8">

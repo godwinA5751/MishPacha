@@ -53,7 +53,7 @@ export default function Header() {
             )
           })}
           <li>
-            <a href="#cta" className="bg-blue-600 text-white px-5 py-2 md:p-2 lg:px-5 font-bold font-sans rounded-3xl hover:bg-blue-500">
+            <a href="#cta" className="bg-blue-600 scroll-mt-32 text-white px-5 py-2 md:p-2 lg:px-5 font-bold font-sans rounded-3xl hover:bg-blue-500">
               Join Us
             </a>
           </li>
@@ -61,6 +61,7 @@ export default function Header() {
 
         {/* HAMBURGER BUTTON */}
         <button
+          aria-label="Toggle menu"
           onClick={() => setOpen(!open)}
           className="text-blue-600 md:hidden text-2xl font-extrabold cursor-pointer"
         >

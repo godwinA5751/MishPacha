@@ -2,7 +2,7 @@ import Reveal from "./Reveal"
 
 export default function Community() {
   return (
-    <section id="community" className=" py-20 px-6">
+    <section id="community" className=" py-24 px-6 scroll-mt-32">
 
       <div className="max-w-6xl mx-auto">
         <Reveal>

@@ -2,7 +2,7 @@ import Reveal from "./Reveal"
 export default function Mandate() {
 
   return (
-    <section id="mandate" className="lg:h-screen py-20 px-6">
+    <section id="mandate" className="lg:h-screen py-24 px-6 scroll-mt-32">
 
       <div className="max-w-6xl mx-auto">
         <Reveal>
