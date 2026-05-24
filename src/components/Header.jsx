@@ -15,34 +15,19 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section[id]");
-
-      let currentSection = "";
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 140;
-        const sectionHeight = section.clientHeight;
-
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          currentSection = section.id;
-        }
-      });
-
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Run once on load
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px' }
+    );
+    sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -68,7 +53,7 @@ export default function Header() {
             )
           })}
           <li>
-            <a href="#cta" className="bg-blue-600 scroll-mt-32 text-white px-5 py-2 md:p-2 lg:px-5 font-bold font-sans rounded-3xl hover:bg-blue-500">
+            <a href="#cta" className="bg-blue-600 text-white px-5 py-2 md:p-2 lg:px-5 font-bold font-sans rounded-3xl hover:bg-blue-500">
               Join Us
             </a>
           </li>
@@ -76,7 +61,6 @@ export default function Header() {
 
         {/* HAMBURGER BUTTON */}
         <button
-          aria-label="Toggle menu"
           onClick={() => setOpen(!open)}
           className="text-blue-600 md:hidden text-2xl font-extrabold cursor-pointer"
         >
@@ -110,7 +94,7 @@ export default function Header() {
             </a>)
           })}
           <div className="mt-7 text-center py-3 rounded-3xl">
-            <a href="#cta" className="bg-blue-600 text-white px-15 shadow-2xl py-4 font-bold font-sans rounded-3xl hover:bg-blue-500"
+            <a href="#cta" className="bg-blue-600 text-white px-19 shadow-2xl py-4 font-bold font-sans rounded-3xl hover:bg-blue-500"
               onClick={() => setOpen(false)}>
               Join Us
             </a>
