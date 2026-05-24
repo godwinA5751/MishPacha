@@ -1,20 +1,23 @@
-import useInView from "../hooks/useInView";
+import Reveal from "./Reveal"
 
 export default function Community() {
-  const [ref, isVisible] = useInView(0.3);
   return (
-    <section id="community" className="bg-white py-24 px-6">
+    <section id="community" className=" py-20 px-6">
 
       <div className="max-w-6xl mx-auto">
-        <div className="text-[#C9A84C] tracking-[0.4em] text-xs uppercase mb-4">
-          Community Projects
-        </div>
+        <Reveal>
+          <div className="text-yellow-500/80 tracking-widest text-2xl font-bold mb-4">
+            Community Projects
+          </div>
+        </Reveal>
 
-        <h2 className="text-3xl font-bold mb-12">
-          Impact You Can <span className="text-[#8B6914]">See & Feel</span>
-        </h2>
+        <Reveal>
+          <h2 className="text-3xl font-bold mb-12 text-blue-900">
+            Impact You Can <span className="text-yellow-500">See & Feel</span>
+          </h2>
+        </Reveal>
 
-        <div ref={ref} className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
 
           {[
             {
@@ -34,7 +37,7 @@ export default function Community() {
             {
               icon: "🌱",
               title: "Economic Empowerment",
-              body: `Skills acquisition, entrepreneurship mentoring, and financial literacy training
+              body: `valuess acquisition, entrepreneurship mentoring, and financial literacy training
               that unlock the economic potential of every individual — aligning vocation with Kingdom purpose.`
             },
             {
@@ -45,24 +48,22 @@ export default function Community() {
               and purpose — ready to take dominion.`
             }
           ].map((item, i) => (
-            <div
-              key={i}
-              style={{ transitionDelay: `${i * 100}ms` }}
-              className={`
-                p-10 border rounded-2xl border-[#C9A84C]/20 hover:bg-[#f9f5ec] cursor-pointer transition
-                ${isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-                }
+            <Reveal>
+              <div
+                key={i}
+                style={{ transitionDelay: `${i * 100}ms` }}
+                className={`
+                  p-6 rounded-2xl bg-white hover:bg-white/60 hover:backdrop-blur-md shadow-xl cursor-pointer transition
               `}
-            >
-              <div className="text-3xl mb-4">{item.icon}</div>
-              <div className="text-xl font-bold mb-3">{item.title}</div>
-              <p className="text-gray-600 leading-7">{item.body}</p>
-              <a href="#" className="inline-block mt-6 text-sm tracking-[0.2em] uppercase border-b border-[#8B6914] text-[#8B6914]">
-                Learn More →
-              </a>
-            </div>
+              >
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <div className="text-xl font-bold mb-3 text-blue-900">{item.title}</div>
+                <p className="leading-7 text-blue-900/70">{item.body}</p>
+                <a href="#" className="inline-block mt-6 text-xs md:text-sm tracking-[0.2em] border-b border-yellow-600 text-yellow-600">
+                  Learn More →
+                </a>
+              </div>
+            </Reveal>
           ))}
 
         </div>
