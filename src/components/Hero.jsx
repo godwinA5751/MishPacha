@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="flex justify-between">
             <Reveal>
               <div className="px-6 md:mt-10">
-                <div className="bg-white w-60 flex items-center gap-2 px-4 py-2 rounded-3xl">
+                <div className="bg-white md:w-60 w-70 flex items-center gap-2 px-4 py-2 rounded-3xl">
                   <div className="border-7 border-amber-300 rounded-full"></div>
                   <div className="text-blue-600 font-bold">Welcome to Mishpacha</div>
                 </div>

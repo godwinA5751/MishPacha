@@ -94,7 +94,7 @@ export default function Header() {
             </a>)
           })}
           <div className="mt-7 text-center py-3 rounded-3xl">
-            <a href="#cta" className="bg-blue-600 text-white px-19 shadow-2xl py-4 font-bold font-sans rounded-3xl hover:bg-blue-500"
+            <a href="#cta" className="bg-blue-600 text-white px-15 shadow-2xl py-4 font-bold font-sans rounded-3xl hover:bg-blue-500"
               onClick={() => setOpen(false)}>
               Join Us
             </a>
