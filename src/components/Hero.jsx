@@ -74,7 +74,7 @@ export default function Hero() {
               {values.map((v, i) => (
                 <div
                   key={i}
-                  className="text-center bg-white mb-4 p-2 md:px-1 md:py-5 lg:p-7 flex items-center gap-2 flex-col shadow-2xl transition transform hover:-translate-y-1 rounded-2xl cursor-pointer"
+                  className="bg-white mb-4 p-2 md:px-1 md:py-5 lg:p-7 flex gap-2 flex-col shadow-2xl transition transform hover:-translate-y-1 rounded-2xl cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <div className={` 
@@ -91,7 +91,7 @@ export default function Hero() {
                       {v.name}
                     </div>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-sm text-blue-900 py-2 pl-1 mb-1">
                     {v.ref}
                   </div>
                 </div>

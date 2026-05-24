@@ -49,7 +49,7 @@ export default function Header() {
           {links.map((link) => {
             const isActive = activeSection === link.ref.replace('#', '')
             return (
-              <li key={link.name}><a href={link.ref} className={`${isActive ? "text-blue-600" : "text-blue-950"} hover:text-blue-600 transition-colors`}>{link.name}</a></li>
+              <li key={link.name}><a href={link.ref} className={`${isActive ? "text-blue-600 font-extrabold text-sm" : "text-blue-900"} hover:text-blue-800 transition-colors`}>{link.name}</a></li>
             )
           })}
           <li>
@@ -69,42 +69,51 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu */}
-      {open && (
-        <aside
-          className={`
+
+      <aside
+        className={`
+          md:hidden 
           fixed top-0 left-0 h-[calc(100%-32px)] w-64
           bg-white/20 backdrop-blur-md
-          shadow-lg rounded-t-3xl rounded-br-3xl p-6
+          shadow-lg rounded-t-3xl rounded-br-3xl p-6 pb-0
           flex flex-col justify-between
-          transform transition-all duration-300 ease-in-out
-          ${open ? "translate-x-0 translate-y-8" : "-translate-x-full"}
-          z-50
+          transform transition-transform duration-300 ease-in-out
+          ${open ? "translate-x-0" : "-translate-x-full"}
+          z-50 translate-y-8
         `} >
-          <div className="text-right">
-            {links.map((link) => {
-              const isActive = activeSection === link.ref.replace('#', '')
-              return (<a
-                key={link.name}
-                href={link.ref}
-                className={`block w-full cursor-pointer ${isActive ? "bg-blue-200/10 backdrop-blur-md rounded-3xl shadow-2xl" : ""} p-4 my-2 ${isActive ? "text-blue-600" : "text-blue-950"} font-bold
-                  }`}
-                onClick={() => setOpen(false)}
-              >
-                {link.name}
-              </a>)
-            })}
-            <div className="mt-5  p-3 text-center">
-            <a href="#cta" className="bg-blue-600 text-white px-15 py-2 font-bold font-sans rounded-3xl hover:bg-blue-500"
+        <div className="text-right pb-4">
+          {links.map((link) => {
+            const isActive = activeSection === link.ref.replace('#', '')
+            return (<a
+              key={link.name}
+              href={link.ref}
+              className={`block w-full cursor-pointer ${isActive ? "bg-blue-200/10 backdrop-blur-md rounded-3xl shadow-2xl text-blue-600 font-extrabold" : "text-blue-900 text-sm"} p-4 my-2 font-bold`}
+              onClick={() => setOpen(false)}
+            >
+              {link.name}
+            </a>)
+          })}
+          <div className="mt-7 text-center py-3 rounded-3xl">
+            <a href="#cta" className="bg-blue-600 text-white px-19 shadow-2xl py-4 font-bold font-sans rounded-3xl hover:bg-blue-500"
               onClick={() => setOpen(false)}>
               Join Us
-            </a></div>
+            </a>
           </div>
-        </aside>
-      )}
+        </div>
+        <div className="flex items-center">
+          <img src={Logo} alt="Mishpacha Logo" loading="lazy" className="h-20" />
+          <span className="-ml-5">
+            <span className="text-blue-600 font-extrabold text-2xl lg:text-[30px] tracking-tight">MISHPACHA</span>
+            <span className="block text-sm font-medium tracking-wide italic text-right text-yellow-700/90">
+              ...your solution hub
+            </span>
+          </span>
+        </div>
+      </aside>
       {/* Overlay */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/30 z-30"
+          className="fixed inset-0 bg-black/30 z-30 md:hidden"
           onClick={() => setOpen(false)}
         />
       )}

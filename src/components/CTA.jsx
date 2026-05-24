@@ -1,7 +1,7 @@
 import Reveal from "./Reveal"
 export default function CTA() {
   return (
-    <section id="cta" className="text-center py-20 px-6 relative overflow-hidden">
+    <section id="cta" className="text-center py-30 px-6 relative overflow-hidden">
       <Reveal>
         <div className="text-yellow-500 tracking-[0.4em] text-xs mb-5 uppercase font-serif">
           ✦ Join the Family ✦
