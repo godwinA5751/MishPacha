@@ -1,8 +1,10 @@
 import Logo from "../assets/navLogo.png";
 import { Target, Eye, Compass, Quote } from "lucide-react";
+import useInView from "../hooks/useInView";
 import Reveal from "./Reveal"
 
 export default function Hero() {
+  const [ref, inView] = useInView(0.3);
   const motto = <Quote className="w-8 h-8 text-yellow-500" />
   const vision = <Eye className="w-8 h-8 text-blue-600" />
   const mission = <Target className="w-8 h-8 text-yellow-500" />
@@ -18,13 +20,13 @@ export default function Hero() {
     <div>
       <section
         id="home"
-        className="min-h-screen flex items-center scroll-mt-32 pt-25 md:pt-15 lg:pt-5 font-sans"
+        className="min-h-screen flex items-center scroll-mt-32 px-6 pt-25 md:pt-15 lg:pt-5 font-sans"
       >
 
         <div className=" mx-auto items-center">
           <div className="flex justify-between">
             <Reveal>
-              <div className="px-6 md:mt-10">
+              <div className="md:mt-10">
                 <div className="bg-white lg:w-60 w-70 flex items-center gap-2 px-4 py-2 rounded-3xl">
                   <div className="border-7 border-amber-300 rounded-full"></div>
                   <div className="text-blue-600 font-bold">Welcome to Mishpacha</div>
@@ -65,16 +67,23 @@ export default function Hero() {
                 </div>
               </div>
             </Reveal>
-            <div className="image hidden md:block">
+            <div className={`
+              image hidden md:block
+              transition-all duration-700 ease-out will-change-transform
+              ${inView
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-20"}
+              `} ref={ref}
+            >
               <img src={Logo} alt="Mishpacha Logo" loading="lazy" className="" />
             </div>
           </div>
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6 mt-10 md:-mt-10 pt-0 md:pt-20">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:pr-13 mt-10 md:-mt-10 pt-0 md:pt-20">
               {values.map((v, i) => (
                 <div
                   key={i}
-                  className="bg-white mb-4 p-2 md:px-1 md:py-5 lg:p-7 flex gap-2 flex-col shadow-2xl transition transform hover:-translate-y-1 rounded-2xl cursor-pointer"
+                  className="bg-white mb-4 p-2 md:p-7 flex gap-2 flex-col shadow-2xl transition transform hover:-translate-y-1 rounded-2xl cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <div className={` 
