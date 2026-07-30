@@ -22,7 +22,6 @@ export default function Hero() {
         id="home"
         className="min-h-screen flex items-center scroll-mt-32 px-6 pt-25 md:pt-15 lg:pt-5 font-sans"
       >
-
         <div className=" mx-auto items-center">
           <div className="flex justify-between">
             <Reveal>
@@ -58,7 +57,7 @@ export default function Hero() {
                   </a>
 
                   <a
-                    href="https://chat.whatsapp.com/F8BY1nT4VSe8zQmeBL6ZGd"
+                    href="#cta"
                     className="bg-white rounded-4xl shadow-2xl text-blue-600 font-bold px-8 py-4 tracking-wider"
                   >
                     Join the Family
