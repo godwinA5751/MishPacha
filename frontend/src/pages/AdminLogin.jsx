@@ -34,7 +34,7 @@ export default function AdminLogin() {
 
       navigate("/admin");
     } catch(err) {
-      toast.error(err.response?.data?.message || "Invalid credentials");
+      toast.error(err ? err.response?.data?.message : "Invalid credentials");
     } finally {
       setLoading(false);
     }

@@ -137,7 +137,7 @@ export default function AdminDashboard() {
                   users.map((user, index) => (
                     <tr
                       key={user._id}
-                      className="border-b border-gray-200 hover:bg-blue-50 transition cursor-pointer"
+                      className="border-b border-blue-200 hover:bg-blue-50 transition cursor-pointer"
                       onClick={(e) => {
                         e.stopPropagation();
                         getUser(user._id);
