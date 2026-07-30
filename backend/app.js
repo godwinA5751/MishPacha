@@ -35,8 +35,8 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api/biodata", bioDataRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/biodata", bioDataRoutes);
+app.use("/auth", authRoutes);
 
 
 export default app;

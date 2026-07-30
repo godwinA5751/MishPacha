@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import {
   Lock,
   User,
@@ -15,11 +16,13 @@ export default function AdminLogin() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const login = async (e) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const res = await api.post("/auth/login", {
         username,
         password,
@@ -27,9 +30,13 @@ export default function AdminLogin() {
 
       localStorage.setItem("token", res.data.token);
 
+      toast.success("Logged in successfully");
+
       navigate("/admin");
-    } catch {
-      alert("Invalid credentials");
+    } catch(err) {
+      toast.error(err.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,7 +45,6 @@ export default function AdminLogin() {
       <div className="mx-auto max-w-7xl h-full grid lg:grid-cols-2 place-items-center gap-12">
 
         {/* LEFT SIDE */}
- 
         <Reveal>
           <div className="w-full max-w-md mx-auto lg:mx-0 mt-10 md:mt-15 p-2">
 
@@ -146,6 +152,7 @@ export default function AdminLogin() {
               {/* Button */}
 
               <button
+                disabled={loading}
                 type="submit"
                 className="mt-10 w-full rounded-xl
                 bg-amber-400
@@ -158,9 +165,11 @@ export default function AdminLogin() {
                 hover:shadow-lg
                 hover:shadow-amber-300/30
                 active:scale-95
-                cursor-pointer mb-8"
+                cursor-pointer mb-8
+                disabled:opacity-50
+                disabled:cursor-not-allowed"
               >
-                Login to Dashboard
+                {loading ? "Loading..." : "Login to Dashboard"}
               </button>
 
             </form>
