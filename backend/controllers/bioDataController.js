@@ -10,9 +10,17 @@ export const createBioData = async (req, res) => {
       data: bio,
     });
   } catch (error) {
-    res.status(500).json({
+    // MongoDB duplicate key error
+    if (error.code === 11000) {
+      return res.status(409).json({
+        success: false,
+        message: "Email already exists.",
+      });
+    }
+
+    return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Something went wrong while submitting your bio data.",
     });
   }
 };

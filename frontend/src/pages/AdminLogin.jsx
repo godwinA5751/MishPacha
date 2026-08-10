@@ -169,7 +169,7 @@ export default function AdminLogin() {
                 disabled:opacity-50
                 disabled:cursor-not-allowed"
               >
-                {loading ? "Loading..." : "Login to Dashboard"}
+                {loading ? "Signing in..." : "Sign in"}
               </button>
 
             </form>
