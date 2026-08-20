@@ -4,7 +4,12 @@ import Logo from "../assets/navLogo.png";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { FaArrowLeft } from "react-icons/fa";
+import { 
+  FaArrowLeft,
+  FaCheckCircle,
+  FaWhatsapp,
+  FaTimes,
+ } from "react-icons/fa";
 
 export default function BioDataForm() {
   const navigate = useNavigate();
@@ -24,6 +29,7 @@ export default function BioDataForm() {
     country: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -58,7 +64,7 @@ export default function BioDataForm() {
         country: "",
       });
   
-      navigate("/");
+      setShowWelcome(true);
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Submission failed."
@@ -299,6 +305,159 @@ export default function BioDataForm() {
         </form>
 
       </div>
+      {showWelcome && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center px-5">
+
+          {/* BACKDROP */}
+          <div
+            className="absolute inset-0 bg-[#0D1B2A]/70 backdrop-blur-md"
+            onClick={() => setShowWelcome(false)}
+          />
+
+          {/* MODAL */}
+          <div
+            className="
+              relative
+              w-full
+              max-w-md
+              rounded-3xl
+              bg-white
+              shadow-2xl
+              p-8
+              text-center
+              animate-[modalIn_0.4s_ease-out]
+            "
+          >
+
+            {/* CLOSE BUTTON */}
+            <button
+              type="button"
+              onClick={() => setShowWelcome(false)}
+              className="
+                absolute
+                top-4
+                right-4
+                w-9
+                h-9
+                rounded-full
+                flex
+                items-center
+                justify-center
+                text-blue-900/50
+                hover:bg-blue-50
+                hover:text-blue-900
+                transition
+                cursor-pointer
+              "
+            >
+              <FaTimes size={16} />
+            </button>
+
+
+            {/* SUCCESS ICON */}
+            <div className="flex justify-center mb-5">
+
+              <div className="
+                w-20
+                h-20
+                rounded-full
+                bg-green-100
+                flex
+                items-center
+                justify-center
+              ">
+                <FaCheckCircle
+                  className="text-green-500"
+                  size={48}
+                />
+              </div>
+
+            </div>
+
+
+            {/* TITLE */}
+            <h2 className="
+              text-3xl
+              font-extrabold
+              text-blue-900
+            ">
+              Welcome to Mishpacha! 🎉
+            </h2>
+
+
+            {/* MESSAGE */}
+            <p className="
+              mt-4
+              text-blue-900/70
+              leading-7
+            ">
+              Thank you for taking the time to share your story with us.
+              Your journey, gifts, and dreams matter, and we're excited
+              to have you as part of the Mishpacha family.
+            </p>
+
+
+            <p className="
+              mt-3
+              text-blue-900/70
+              leading-7
+            ">
+              The journey is better when we walk it together.
+              Join our WhatsApp platform to stay connected, receive
+              updates, and grow alongside the community.
+            </p>
+
+
+            {/* WHATSAPP BUTTON */}
+            <a
+              href="https://chat.whatsapp.com/H2EhVALKCgf4McLBgAJWSG?s=sw&p=i&mlu=4&amv=1"
+              rel="noopener noreferrer"
+              className="
+                mt-7
+                w-full
+                flex
+                items-center
+                justify-center
+                gap-3
+                bg-green-500
+                hover:bg-green-600
+                text-white
+                font-bold
+                py-4
+                rounded-xl
+                shadow-lg
+                transition-all
+                duration-300
+                hover:scale-[1.02]
+              "
+            >
+              <FaWhatsapp size={24} />
+
+              Join Our WhatsApp Community
+            </a>
+
+
+            {/* CONTINUE */}
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="
+                mt-4
+                text-sm
+                font-semibold
+                text-blue-600
+                hover:text-blue-800
+                transition
+                cursor-pointer
+              "
+            >
+              Continue to Mishpacha →
+            </button>
+
+          </div>
+
+        </div>
+      )}
     </section>
   );
 }
